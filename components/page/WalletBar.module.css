@@ -1,0 +1,25 @@
+.walletBar {
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 5px;
+  width: fit-content;
+  height: 30px;
+
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.notConnected {
+  color: blue;
+  text-decoration: underline;
+}
+
+.walletBar * {
+  margin: 0 4px 0 4px;
+}
+
+.walletBar:hover {
+  cursor: pointer;
+}

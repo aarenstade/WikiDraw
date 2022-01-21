@@ -1,0 +1,23 @@
+.full {
+  position: absolute;
+  top: var(--navbar-offset);
+  left: 0;
+  background-color: none;
+}
+
+.menuLayer {
+  position: fixed;
+  top: var(--navbar-offset);
+  z-index: 500;
+}
+
+.touchLayer {
+  position: absolute;
+  top: var(--navbar-offset);
+  left: 0;
+  background-color: transparent;
+}
+
+.touchLayer:hover {
+  cursor: crosshair;
+}

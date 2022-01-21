@@ -1,0 +1,23 @@
+.countdownTimer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  padding: 8px;
+  width: 100vw;
+  height: 45px;
+  color: white;
+  background-color: black;
+}
+
+.countdownTimer * {
+  margin: 0;
+}
+
+.helpButton {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  margin: 10px;
+}

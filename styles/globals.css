@@ -1,0 +1,60 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  --global-font-family: Times, Georgia, "Times New Roman", sans-serif;
+
+  font-family: var(--global-font-family);
+
+  --background-color: rgb(50, 50, 50);
+  background-color: var(--background-color);
+
+  --navbar-offset: 40px;
+
+  --primary-color: white;
+
+  --transparent-white: rgba(255, 255, 255, 0.608);
+  --transparent-black: rgba(0, 0, 0, 0.608);
+
+  --color1-main: #2c7dff;
+  --color1-light: #cbd2f3;
+  --color2-main: #ff9f1c;
+  --color2-light: #ffbf69;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: var(--global-font-family);
+}
+
+input[type="text"] {
+  width: 90%;
+  height: 25px;
+  padding: 8px;
+  margin: 0;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-family: var(--global-font-family);
+}
+
+textarea {
+  width: 90%;
+  resize: none;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-family: var(--global-font-family);
+}

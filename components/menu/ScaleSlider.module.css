@@ -1,0 +1,36 @@
+.scaleSliderContainer {
+  position: fixed;
+  background-color: var(--transparent-white);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+
+  height: 200px;
+  width: 40px;
+  margin: 10px;
+  transition: 200ms;
+  border: 1px solid gray;
+}
+
+.scaleSliderContainer:hover {
+  transform: scale(1.01);
+}
+.scaleSliderContainer:active {
+  transform: scale(1.03);
+}
+
+.scaleSlider {
+  width: 200px 20px;
+  transform: rotate(-90deg) translateX(-15px);
+  margin: 0;
+}
+
+.scaleReadout {
+  position: fixed;
+  font-size: 14px;
+  margin-bottom: 150px;
+}

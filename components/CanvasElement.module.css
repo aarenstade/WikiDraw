@@ -1,0 +1,16 @@
+.elementContainer {
+  color: white;
+}
+
+.elementControlButtons {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  top: -30px;
+}
+
+.elementContainer textarea {
+  background: none;
+}
