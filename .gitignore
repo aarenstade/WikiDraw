@@ -3,3 +3,7 @@ creds
 misc
 yarn.lock
 yarn-error.log
+
+.next
+
+.DS_Store

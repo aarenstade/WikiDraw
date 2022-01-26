@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/dist/client/router";
 import { VFC } from "react";
-import useElements from "../../hooks/useElements";
 import { SubmissionStatus } from "../../types/general";
 import { BigButton } from "../Buttons";
 import LoadingIcon from "../LoadingIcon";
@@ -14,7 +13,6 @@ interface Props {
 
 const SubmissionStatusPopup: VFC<Props> = ({ status, topic }) => {
   const router = useRouter();
-  const elements = useElements();
   if (status.success === true) {
     return (
       <Popup noExit onToggle={() => null}>
@@ -24,7 +22,7 @@ const SubmissionStatusPopup: VFC<Props> = ({ status, topic }) => {
         <BigButton
           text="Done"
           onClick={() => {
-            elements.clearElements();
+            // TODO clear drawing
             router.push("/");
           }}
         />
@@ -42,7 +40,7 @@ const SubmissionStatusPopup: VFC<Props> = ({ status, topic }) => {
         <BigButton
           text="Done"
           onClick={() => {
-            elements.clearElements();
+            // TODO clear drawing
             router.push("/");
           }}
         />

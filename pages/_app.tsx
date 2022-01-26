@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DAppProvider config={{ autoConnect: true }}>
         <RecoilRoot>
           <Head>
-            <title>WikiCollage</title>
+            <title>WikiDraw</title>
           </Head>
           <Navbar />
           <Component {...pageProps} />

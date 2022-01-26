@@ -1,7 +1,7 @@
-import { ChangeEvent, KeyboardEventHandler, useEffect, useRef, useState, VFC } from "react";
+import { useEffect, useState, VFC } from "react";
+import { capitalizeWords, encodeTopicUrlParam } from "../utils/utils";
 import { authGetRequest } from "../client/requests";
 import useAuth from "../hooks/useAuth";
-import { capitalizeWords, encodeTopicUrlParam } from "../utils/utils";
 import styles from "./QueryTextField.module.css";
 
 interface QueryTextFieldProps {

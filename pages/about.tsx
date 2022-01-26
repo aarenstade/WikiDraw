@@ -3,6 +3,8 @@ import { GITHUB_URL } from "../config";
 
 import container from "../styles/containers.module.css";
 
+// TODO better about page
+
 const AboutPage: NextPage = () => {
   return (
     <div className={container.pageContainer}>
