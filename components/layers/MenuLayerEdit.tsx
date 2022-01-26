@@ -1,23 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "../../styles/layers.module.css";
-import ScaleSlider from "../menu/ScaleSlider";
 import SubmitControlArea from "../menu/SubmitControlArea";
-import useCollage from "../../hooks/useCollage";
+import useBaseDrawing from "../../hooks/useBaseDrawing";
 import useSubmitHandler from "../../hooks/useSubmitHandler";
 import SubmissionFormPopup from "../popups/SubmissionFormPopup";
-import { AdditionSubmitFormValues } from "../../types/general";
 import SubmissionStatusPopup from "../popups/SubmissionStatusPopup";
-import ElementsLayerList from "../menu/ElementsLayerList";
 import HelpButton from "../menu/HelpButton";
+import { AdditionSubmitFormValues } from "../../types/general";
+import useDrawing from "../../hooks/useDrawing";
+import DrawingControls from "../menu/DrawingControls";
 
 const MenuLayerEdit = () => {
-  const collage = useCollage();
+  const baseDrawing = useBaseDrawing();
   const submit = useSubmitHandler();
+
+  const drawing = useDrawing();
 
   const [submitReady, setSubmitReady] = useState(false);
   const [processing, setProcessing] = useState(false);
 
   const [formValues, setFormValues] = useState<AdditionSubmitFormValues>({ name: "" });
+
+  // TODO implement undo features
+
+  // useEffect(() => {
+  //   let undoready = true;
+  //   document.addEventListener(
+  //     "keydown",
+  //     (e) => {
+  //       if ((e.metaKey || e.ctrlKey) && e.key === "z" && undoready && drawing.history.length > 0) {
+  //         drawing.undo();
+  //         undoready = false;
+  //         setTimeout(() => (undoready = true), 200);
+  //       }
+  //     },
+  //     { passive: true }
+  //   );
+  // }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,17 +67,16 @@ const MenuLayerEdit = () => {
           message: submit.message,
           success: submit.success,
         }}
-        topic={collage.topic?.topic}
+        topic={baseDrawing.topic?.topic}
       />
     );
   }
 
   return (
     <div className={styles.menuLayer}>
-      <ElementsLayerList />
-      <ScaleSlider />
+      <DrawingControls />
       <SubmitControlArea
-        timestamp={collage.addition?.timestamp}
+        timestamp={baseDrawing.addition?.timestamp}
         onClick={() => {
           const validation = submit.validateSubmission();
           setSubmitReady(validation);

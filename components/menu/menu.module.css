@@ -21,3 +21,64 @@
   z-index: 200;
   margin: 10px;
 }
+
+.drawingControlsArea {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 40px;
+  width: 60px;
+  height: fit-content;
+  padding: 10px;
+  z-index: 900;
+  background-color: rgba(0, 0, 0, 0.252);
+}
+
+.drawingColorItem {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  margin: 5px 0 5px 0;
+  transition: all 250ms;
+}
+
+.drawingColorItem:hover {
+  transform: scale(1.1);
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.drawingColorItemSelected {
+  box-shadow: 0 0 0 5px gray;
+}
+
+.drawingBrushItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0 5px 0;
+  background-color: black;
+  border-radius: 40px;
+  color: white;
+  text-align: center;
+  transition: all 250ms;
+}
+
+.drawingBrushItem * {
+  margin: 0;
+  padding: 0;
+}
+
+.drawingBrushItem:hover {
+  transform: scale(1.1);
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.drawingBrushItemSelected {
+  box-shadow: 0 0 0 5px gray;
+}
