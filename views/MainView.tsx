@@ -6,7 +6,10 @@ import { GlobalRoles } from "../types/auth";
 import MenuLayerView from "../components/layers/MenuLayerView";
 import MenuLayerEdit from "../components/layers/MenuLayerEdit";
 import useAuth from "../hooks/useAuth";
-import DrawLayer from "../components/layers/DrawLayer";
+import CanvasLayer from "../components/layers/CanvasLayer";
+import BaseLayer from "../components/layers/BaseLayer";
+import HelperDialog from "../components/HelperDialog";
+import { NormalButton } from "../components/Buttons";
 
 interface Props {
   drawing: Drawing | null;
@@ -18,16 +21,16 @@ const MainView: VFC<Props> = ({ drawing }) => {
     return (
       <div>
         {drawing.loading && <LoadingOverlay />}
-        {/* {!drawing.loading && !drawing.addition?.url && (
+        {!drawing.loading && !drawing.addition?.url && (
           <HelperDialog top="var(--navbar-offset)" right={0}>
             <h3>New Topic!</h3>
             <p>{`You're the first here, make a meaningful contribution!`}</p>
           </HelperDialog>
-        )} */}
+        )}
         <div>
           {auth?.role === GlobalRoles.view || drawing.topic?.locked ? <MenuLayerView /> : <MenuLayerEdit />}
-          <DrawLayer />
-          {/* <BaseLayer image={!drawing.loading ? drawing?.addition?.url : undefined} /> */}
+          <CanvasLayer />
+          <BaseLayer image={!drawing.loading ? drawing?.addition?.url : undefined} />
         </div>
       </div>
     );
