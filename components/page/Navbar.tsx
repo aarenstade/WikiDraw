@@ -19,14 +19,13 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.menu}>
-        <h1>WikiDraw</h1>
-        {/* <img
-          src="/images/logo-small.png"
+        <img
+          src="/images/logo.png"
           alt="WikiDraw"
-          width={160}
+          width={120}
           className={styles.logo}
           onClick={() => router.push("/")}
-        /> */}
+        />
         <Link href="/about">About</Link>
       </div>
       <div style={{ display: "flex", gap: 0, justifyContent: "flex-end", alignItems: "center" }}>
