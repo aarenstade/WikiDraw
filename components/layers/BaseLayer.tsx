@@ -9,9 +9,9 @@ interface Props {
 
 const BaseLayer: VFC<Props> = ({ image }) => {
   return (
-    <div className={styles.full}>
+    <div className={styles.baseLayer}>
       {image ? (
-        <img src={image} alt="collage" style={{ zIndex: 1, width: `${CANVAS_DIMENSION}px` }} />
+        <img src={image} alt="base-drawing" style={{ zIndex: 1, width: `${CANVAS_DIMENSION}px` }} />
       ) : (
         <div
           style={{

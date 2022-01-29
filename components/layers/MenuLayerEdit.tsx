@@ -14,7 +14,7 @@ const MenuLayerEdit = () => {
   const baseDrawing = useBaseDrawing();
   const submit = useSubmitHandler();
 
-  const drawing = useDrawing();
+  // const drawing = useDrawing();
 
   const [submitReady, setSubmitReady] = useState(false);
   const [processing, setProcessing] = useState(false);

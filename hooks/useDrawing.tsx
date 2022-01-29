@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { DrawContext, DrawHistory } from "../data/atoms";
 

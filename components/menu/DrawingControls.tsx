@@ -1,6 +1,8 @@
 import { useRecoilState } from "recoil";
 import { BRUSH_SIZES, COLORS } from "../../config";
 import { DrawingControlParams } from "../../data/atoms";
+import eventBus from "../../services/eventBus";
+import { NormalButton } from "../Buttons";
 
 import styles from "./menu.module.css";
 
@@ -17,9 +19,13 @@ const DrawingControls = () => {
 
   return (
     <div>
+      {/* <div className={styles.drawingControlsArea} style={{ left: "60px", borderBottomRightRadius: "20px" }}>
+        <NormalButton text="Clear" onClick={handleCanvasUndo} />
+      </div> */}
       <div className={styles.drawingControlsArea} style={{ left: 0, borderBottomRightRadius: "20px" }}>
         {COLORS.map((color: string, i: number) => (
           <div
+            key={i}
             className={`${styles.drawingColorItem} ${params.color === color && styles.drawingColorItemSelected}`}
             style={{ backgroundColor: color }}
             onClick={() => setParams({ ...params, color: color })}
@@ -31,6 +37,7 @@ const DrawingControls = () => {
           const size = scaleBrushSize(brush);
           return (
             <div
+              key={i}
               className={`${styles.drawingBrushItem} ${
                 params.strokeWeight === brush && styles.drawingBrushItemSelected
               }`}
