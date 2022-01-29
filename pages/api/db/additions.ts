@@ -52,7 +52,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
 
     const newAddition = { ...addition, topic_id };
     const additionInsert = await new Addition(newAddition).save();
-    if (additionInsert.errors) res.status(500).send(JSON.stringify(additionInsert.errors));
+    if (additionInsert.errors) res.status(500).send(JSON.stringify(additionInsert.errors || {}));
 
     res.status(200).send({ _id: additionInsert?._id.toString(), topic_id: additionInsert.topic_id });
   } catch (error) {
