@@ -1,4 +1,5 @@
-export const BASE_URL = "http://localhost:3000";
+// export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "http://www.wikidraw.vercel.app";
 export const CANVAS_DIMENSION = 1000;
 
 export const HOME_TOPIC_NAME = "wikidraw-home";
