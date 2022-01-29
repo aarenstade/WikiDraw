@@ -5,7 +5,7 @@
   background-color: none;
 }
 
-.drawLayer {
+.canvasLayer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,11 +13,16 @@
   width: 100%;
 }
 
-/* .drawLayer canvas {
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-} */
+.baseLayer {
+  position: absolute;
+  top: var(--navbar-offset);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 .menuLayer {
   position: fixed;
