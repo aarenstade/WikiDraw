@@ -44,7 +44,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     const addition: AdditionItem = req.body.addition;
     let topic_id = addition.topic_id || "";
 
-    if (!addition.topic_id) {
+    if (!addition.topic_id && req.body.topic) {
       const topic: TopicItem = req.body.topic;
       const topicInsert = await new Topic(topic).save();
       if (topicInsert) topic_id = topicInsert._id.toString();
