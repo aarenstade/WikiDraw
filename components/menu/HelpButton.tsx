@@ -12,10 +12,10 @@ const HelpButton = () => {
       {showDialog && (
         <HelperDialog bottom="40px" right={0}>
           <h4>How to use:</h4>
-          <ul>
-            <li>Click to create an empty image.</li>
-            <li>Paste URL or upload file.</li>
-            <li>Double click to re-edit.</li>
+          <ul style={{ fontSize: "14px", padding: "0", listStyleType: "none" }}>
+            <li>1. Select color (left) and brush size (right).</li>
+            <li>2. Draw a nice picture!</li>
+            <li>3. Click Submit Additions to upload!</li>
           </ul>
         </HelperDialog>
       )}
