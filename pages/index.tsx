@@ -1,12 +1,12 @@
 import { NextPage } from "next";
-import GlobalCollabView from "../views/GlobalCollabView";
-import useCollage from "../hooks/useCollage";
+import MainView from "../views/MainView";
 import { HOME_TOPIC_NAME } from "../config";
+import useBaseDrawing from "../hooks/useBaseDrawing";
 
 const Home: NextPage = () => {
-  const collage = useCollage(HOME_TOPIC_NAME);
+  const drawing = useBaseDrawing(HOME_TOPIC_NAME);
 
-  return <GlobalCollabView collage={collage} />;
+  return <MainView drawing={drawing} />;
 };
 
 export default Home;

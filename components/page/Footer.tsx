@@ -11,7 +11,7 @@ const Footer = () => {
         padding: "2px",
       }}
     >
-      <p style={{ fontSize: "8px", color: "var(--transparent-black)", margin: "1px" }}>© WikiCollage 2022</p>
+      <p style={{ fontSize: "8px", color: "var(--transparent-black)", margin: "1px" }}>© WikiDraw 2022</p>
     </div>
   );
 };

@@ -1,49 +1,28 @@
-import { atom, selector, DefaultValue } from "recoil";
-import { Collage } from "../types/collage";
-import { CanvasElementItem } from "../types/elements";
-import { ViewControl } from "../types/view";
-import { defaultCollage } from "./defaults";
+import { atom, selector } from "recoil";
+import { Drawing, DrawingControls } from "../types/drawing";
+import { defaultDrawing, defaultDrawingParams } from "./defaults";
 
-export const CollageState = atom<Collage>({
-  key: "CollageState",
-  default: defaultCollage,
+export const DrawingState = atom<Drawing>({
+  key: "DrawingState",
+  default: defaultDrawing,
 });
 
-export const CollageOpenState = selector({
-  key: "CollageOpenState",
-  get: ({ get }) => get(CollageState).open,
+export const DrawingOpenState = selector({
+  key: "DrawingOpenState",
+  get: ({ get }) => get(DrawingState).open,
 });
 
-export const ViewControlState = atom<ViewControl>({
-  key: "ViewControlState",
-  default: { x: 0, y: 0, scale: 0.3 },
+export const DrawingControlParams = atom<DrawingControls>({
+  key: "DrawingControlParams",
+  default: defaultDrawingParams,
 });
 
-export const ElementListState = atom<CanvasElementItem[]>({
-  key: "ElementListState",
+export const DrawHistory = atom<ImageData[]>({
+  key: "DrawHistory",
   default: [],
 });
 
-export const SelectedElementIdState = atom<{ id: number; editing: boolean } | null>({
-  key: "SelectedElementIdState",
-  default: null,
-});
-
-export const SelectedElementState = selector<CanvasElementItem>({
-  key: "SelectedElementState",
-  get: ({ get }) => {
-    const elementList = get(ElementListState);
-    const elementId = get(SelectedElementIdState);
-    if (elementId) return elementList[elementId.id];
-    return elementList[0];
-  },
-  set: ({ set, get }, newValue: CanvasElementItem | DefaultValue) => {
-    if (newValue instanceof DefaultValue) return;
-    const elementList = get(ElementListState);
-    const oldElement = elementList.filter((element) => element.id === newValue.id);
-    const elementIndex = elementList.indexOf(oldElement[0]);
-    let newList = [...elementList];
-    newList[elementIndex] = newValue;
-    set(ElementListState, newList);
-  },
+export const DrawContext = atom<CanvasRenderingContext2D | null | undefined>({
+  key: "DrawContext",
+  default: undefined,
 });

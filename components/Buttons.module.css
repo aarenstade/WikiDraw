@@ -1,10 +1,10 @@
 .bigButton {
   outline: none;
   border: none;
-  background-color: var(--transparent-white);
-  padding: 8px;
-  border-radius: 12px;
-  border: 1px solid gray;
+  background-color: var(--secondary-color);
+  color: rgba(0, 0, 0, 0.704);
+  padding: 10px;
+  border-radius: 20px;
   font-size: 18px;
   transition: all 150ms;
 }
@@ -12,6 +12,9 @@
 .bigButton:hover {
   cursor: pointer;
   transform: scale(1.02);
+  background-color: var(--secondary-accent);
+  color: rgba(0, 0, 0, 0.704);
+  border: none;
 }
 
 .bigButton:active {
@@ -23,11 +26,11 @@
   align-items: center;
   outline: none;
   border: none;
-  background-color: var(--transparent-white);
-  border-radius: 5px;
-  border: 1px solid gray;
+  color: rgba(0, 0, 0, 0.704);
+  background-color: var(--secondary-color);
+  border-radius: 20px;
   font-size: 14px;
-  padding: 4px;
+  padding: 8px;
   height: 30px;
   transition: all 150ms;
 }
@@ -45,8 +48,8 @@
   outline: none;
   border: none;
   background-color: var(--transparent-white);
+  color: rgba(0, 0, 0, 0.704);
   border-radius: 5px;
-  border: 1px solid gray;
   font-size: 12px;
   padding: 2px;
 }
@@ -57,7 +60,6 @@
   align-items: center;
   outline: none;
   border: none;
-  border: 1px solid gray;
   background-color: var(--transparent-white);
   padding: 6px;
   border-radius: 5px;

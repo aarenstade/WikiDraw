@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { CollageState } from "../data/atoms";
+import { DrawingState } from "../data/atoms";
 import { fetchAdditions, fetchTopic } from "../services/fetch";
-import { Collage } from "../types/collage";
+import { Drawing } from "../types/drawing";
 import { AdditionItem, TopicItem } from "../types/mongodb/schemas";
 import { encodeTopicUrlParam, isTopicOpen } from "../utils/utils";
 import useAuth from "./useAuth";
 
-interface UseCollageHook extends Collage {
+interface useBaseDrawingHook extends Drawing {
   setLoading: (v: boolean) => void;
 }
 
@@ -35,15 +35,15 @@ const fetchTopicAndAdditions = async (
   return { topic, addition };
 };
 
-const useCollage = (topicString?: string, page?: number, limit?: number): UseCollageHook => {
+const useBaseDrawing = (topicString?: string, page?: number, limit?: number): useBaseDrawingHook => {
   const auth = useAuth();
-  const [collage, setCollage] = useRecoilState(CollageState);
+  const [drawing, setDrawing] = useRecoilState(DrawingState);
 
-  const setLoading = (v: boolean) => setCollage({ ...collage, loading: v });
+  const setLoading = (v: boolean) => setDrawing({ ...drawing, loading: v });
 
   useEffect(() => {
     if (auth?.firebase?.token && topicString) {
-      setCollage({ ...collage, loading: true });
+      setDrawing({ ...drawing, loading: true });
       fetchTopicAndAdditions(auth.firebase.token, topicString, page, limit)
         .then((res) => {
           const topic: TopicItem = res.topic
@@ -55,22 +55,22 @@ const useCollage = (topicString?: string, page?: number, limit?: number): UseCol
                 updated_at: new Date(),
               };
           const { isOpen } = isTopicOpen(res.addition?.timestamp && new Date(res.addition.timestamp).getTime());
-          setCollage({ topic, addition: res.addition, open: isOpen, loading: false });
+          setDrawing({ topic, addition: res.addition, open: isOpen, loading: false });
         })
         .catch((err) => {
           console.log({ err });
-          setCollage({ ...collage, loading: false });
+          setDrawing({ ...drawing, loading: false });
         });
     }
   }, [auth?.firebase, topicString]);
 
   return {
-    topic: collage.topic,
-    addition: collage.addition,
-    open: collage.open,
-    loading: collage.loading,
+    topic: drawing.topic,
+    addition: drawing.addition,
+    open: drawing.open,
+    loading: drawing.loading,
     setLoading,
   };
 };
 
-export default useCollage;
+export default useBaseDrawing;

@@ -5,6 +5,25 @@
   background-color: none;
 }
 
+.canvasLayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.baseLayer {
+  position: absolute;
+  top: var(--navbar-offset);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .menuLayer {
   position: fixed;
   top: var(--navbar-offset);
