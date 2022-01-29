@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { EMPTY_COLLAGE_URI } from "../../config";
+import { EMPTY_DRAWING_URI } from "../../config";
 import { writeImageFile } from "../../server/server-utils";
 import { ADMIN_ST } from "../../server/firebase";
 import apiHandler from "../../server/api-middleware";
@@ -11,32 +11,31 @@ const handler = apiHandler();
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    console.log("merging collage");
     const start = new Date().getTime();
-    const addition_url = req.body.addition_url;
-    const collage_url = req.body.collage_url;
+    const additionUrl = req.body.additionUrl;
+    const baseUrl = req.body.baseUrl;
 
     const additionPath = `/tmp/${v4()}.png`;
-    const collagePath = `/tmp/${v4()}.png`;
-    const newCollagePath = `/tmp/${v4()}.png`;
+    const basePath = `/tmp/${v4()}.png`;
+    const newBasePath = `/tmp/${v4()}.png`;
 
-    await writeImageFile(addition_url, additionPath);
-    if (collage_url) {
-      await writeImageFile(collage_url, collagePath);
+    await writeImageFile(additionUrl, additionPath);
+    if (baseUrl) {
+      await writeImageFile(baseUrl, basePath);
     } else {
-      await writeImageFile(EMPTY_COLLAGE_URI, collagePath);
+      await writeImageFile(EMPTY_DRAWING_URI, basePath);
     }
 
-    await sharp(collagePath)
+    await sharp(basePath)
       .composite([{ input: additionPath, gravity: "northwest", top: 0, left: 0 }])
-      .toFile(newCollagePath);
+      .toFile(newBasePath);
 
-    const storagePath = `murals/mural_${v4()}.png`;
-    await ADMIN_ST.upload(newCollagePath, { destination: storagePath });
+    const storagePath = `finals/${v4()}.png`;
+    await ADMIN_ST.upload(newBasePath, { destination: storagePath });
 
     fs.rmSync(additionPath);
-    fs.rmSync(collagePath);
-    fs.rmSync(newCollagePath);
+    fs.rmSync(basePath);
+    fs.rmSync(newBasePath);
 
     const end = new Date().getTime();
 
