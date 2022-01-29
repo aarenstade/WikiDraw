@@ -12,10 +12,10 @@ interface Props {
 }
 
 const SearchBar: VFC<Props> = ({ topic, loading, onSearch }) => {
-  const [newTopic, setTopic] = useState(topic);
+  const [newTopic, setTopic] = useState(topic?.toLowerCase());
 
   useEffect(() => {
-    if (!topic || topic === HOME_TOPIC_NAME) {
+    if (!topic || topic === HOME_TOPIC_NAME.toLowerCase()) {
       setTopic("");
     } else {
       setTopic(topic);
@@ -26,8 +26,8 @@ const SearchBar: VFC<Props> = ({ topic, loading, onSearch }) => {
     <div className={styles.searchBar}>
       <QueryTextField
         value={newTopic}
-        onChange={(v) => setTopic(v)}
-        onSelect={(v) => onSearch(v)}
+        onChange={(v) => setTopic(v.toLowerCase())}
+        onSelect={(v) => onSearch(v.toLowerCase())}
         endpointUrl={`${BASE_URL}/api/db/topics`}
         paramName="search"
         selectOnEnter
