@@ -12,7 +12,9 @@ const AboutPage: NextPage = () => {
         <p>Anyone can explore topics and add drawings. Each topic starts with an empty 1000 x 1000 pixel canvas.</p>
       </div>
       <div className={container.contentContainer}>
-        <p>Created by Aaren Stade</p>
+        <p>
+          Created by <a href="https://twitter.com/AarenStade">Aaren Stade</a>
+        </p>
         <p>Built with NextJS and MongoDB</p>
         <p>
           Any bugs or feature requests, email: <a href="aarenstade@gmail.com">aarenstade@gmail.com</a>
