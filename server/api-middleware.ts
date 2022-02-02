@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import nextConnect, { NextHandler } from "next-connect";
 import { NextApiRequest, NextApiResponse } from "next";
 import { ADMIN_AUTH } from "./firebase";
-import { MONGODB_URL } from "../creds/mongodb";
+// import { MONGODB_URL } from "../creds/mongodb";
 
 const verifyAuthentication = async (req: NextApiRequest, res: NextApiResponse, next: NextHandler) => {
   try {
@@ -23,8 +23,8 @@ const verifyAuthentication = async (req: NextApiRequest, res: NextApiResponse, n
 const prepareDatabase = async (req: NextApiRequest, res: NextApiResponse, next: NextHandler) => {
   try {
     if (mongoose.connection.readyState === 1) return next();
-    // if (process.env.MONGODB_URL) await mongoose.connect(process.env.MONGODB_URL);
-    await mongoose.connect(MONGODB_URL);
+    if (process.env.MONGODB_URL) await mongoose.connect(process.env.MONGODB_URL);
+    // await mongoose.connect(MONGODB_URL);
     return next();
   } catch (error) {
     console.error({ error });
