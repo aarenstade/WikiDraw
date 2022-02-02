@@ -47,7 +47,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     if (!addition.topic_id) {
       const topic: TopicItem = req.body.topic;
       const topicInsert = await new Topic(topic).save();
-      topic_id = topicInsert._id?.toString();
+      if (topicInsert._id) topic_id = topicInsert._id.toString();
     }
 
     const newAddition = { ...addition, topic_id };
