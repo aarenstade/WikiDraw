@@ -5,4 +5,5 @@ People can make new drawings for any topic (1000px x 1000px) or add their drawin
 
 Tech stack: NextJS (Typescript), MongoDB, and Google Cloud Functions.
 
-Try it out: <!-- [https://wiki-draw.vercel.app](https://wiki-draw.vercel.app) -->
+Try it out!
+<!-- [https://wiki-draw.vercel.app](https://wiki-draw.vercel.app) -->
