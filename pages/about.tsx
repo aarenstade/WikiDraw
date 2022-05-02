@@ -14,14 +14,11 @@ const AboutPage: NextPage = () => {
       <div style={{ width: "80%", height: "1px", backgroundColor: "black" }} />
       <div className={container.contentContainer}>
         <p>
-          Created by{" "}
-          <a href="https://twitter.com/AarenStade" target="_blank">
-            Aaren Stade
-          </a>
+          Any bugs or feature requests, PR:{" "}
+          <a href="https://github.com/aarenstade/WikiDraw">https://github.com/aarenstade/WikiDraw</a>
         </p>
-
         <p>
-          Any bugs or feature requests, email: <a href="aarenstade@gmail.com">aarenstade@gmail.com</a>
+          Built by <a href="https://twitter.com/aaren_carlson">Aaren Stade</a>
         </p>
       </div>
     </div>
